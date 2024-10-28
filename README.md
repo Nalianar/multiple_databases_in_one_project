@@ -1,6 +1,6 @@
 # Get users from multiple databases
 
-This is the test task for getting all the users from multiple databases. Currentlu working only with MySQL and PostgreSQL databases.
+This is the test task for getting all the users from multiple databases. Currently working only with MySQL and PostgreSQL databases.
 You can provide your database connection and table structure using ```application.yaml```.
 
 ### ```application.yaml``` structure:
@@ -9,7 +9,7 @@ You can provide your database connection and table structure using ```applicatio
 data:
   sources:
     -   name: {datasorce_naming}
-        strategy: {mysql/postgres} # optional parametr used for undertanding connection souce
+        strategy: {mysql/postgres} # optional parameter used for understanding connection source
         url: {your_database_link}
         table: {table_name}
         user: {database_user_name}
@@ -32,24 +32,11 @@ data:
           name: name
           surname: surname
 ```
-You can add as much database connections as you want, just use provided template.
-If you want to add other relational database connections(not MySQL/PostgreSQL) do not forget to add corresponding driver to ```pom.xml```
+`surname``` - returns all users with corresponding surname
 
-## Endpoints
+All this parameters can be used together or in some combinations. 
 
-Currently this app contains only one endpoint ```GET /api/users``` with some request query params:
-
-```id``` - returns all users with corresponding id
-
-```username``` - returns all users with corresponding username
-
-```name``` - returns all users with corresponding name
-
-```surname``` - returns all users with corresponding surname
-
-All this params can be used together or in some combinations. 
-
-Responce is returned in json format and looks like this:
+Response is returned in JSON format and looks like this:
 
 ``` 
 [
@@ -68,6 +55,8 @@ Responce is returned in json format and looks like this:
 ] 
 ```
 
-For more info of endpoint check [swagger url](http://localhost:8080/swagger-ui/index.html).
+For more info of endpoint check [Swagger URL](http://localhost:8080/swagger-ui/index.html) while application is running.
 
 ### The application runs on port ```8080```
+
+This application also contains integration tests that utilize the ```Testcontainers``` library. If you want them to work properly, install and run ```Docker``` app in background.
