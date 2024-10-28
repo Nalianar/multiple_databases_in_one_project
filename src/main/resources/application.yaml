@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: test-task-databases-multiple
+
+data:
+  sources:
+    -   name: data-base-1
+        strategy: mysql
+        url: jdbc:mysql://localhost:3306/test
+        table: users
+        user: root
+        password:
+        mapping:
+          id: user_id
+          username: login
+          name: first_name
+          surname: last_name
+    -   name: data-base-2
+        strategy: mysql
+        url: jdbc:mysql://localhost:3306/locationapi
+        table: users_new
+        user: root
+        password:
+        mapping:
+          id: id
+          username: user_login
+          name: name
+          surname: surname
+
